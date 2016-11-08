@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CalculoEletronica" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Calcular">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tensao" type="xs:double" />
+            <xs:element minOccurs="0" name="resistencia" type="xs:double" />
+            <xs:element minOccurs="0" name="corrente" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CalcularResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CalcularResult" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteMiliParaUnidade">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="mili" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteMiliParaUnidadeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ConverteMiliParaUnidadeResult" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteMicroParaUnidade">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="micro" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteMicroParaUnidadeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ConverteMicroParaUnidadeResult" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteKiloParaUnidade">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kilo" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteKiloParaUnidadeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ConverteKiloParaUnidadeResult" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteMegaParaUnidade">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="mega" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConverteMegaParaUnidadeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ConverteMegaParaUnidadeResult" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FormataValorResistencia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="resistencia" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FormataValorResistenciaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FormataValorResistenciaResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FormataValorTensao">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tensao" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FormataValorTensaoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FormataValorTensaoResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FormataValorCorrente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="corrente" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FormataValorCorrenteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FormataValorCorrenteResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ICalculoEletronica_Calcular_InputMessage">
+    <wsdl:part name="parameters" element="tns:Calcular" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_Calcular_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalcularResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteMiliParaUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteMiliParaUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteMiliParaUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteMiliParaUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteMicroParaUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteMicroParaUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteMicroParaUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteMicroParaUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteKiloParaUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteKiloParaUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteKiloParaUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteKiloParaUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteMegaParaUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteMegaParaUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_ConverteMegaParaUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConverteMegaParaUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_FormataValorResistencia_InputMessage">
+    <wsdl:part name="parameters" element="tns:FormataValorResistencia" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_FormataValorResistencia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FormataValorResistenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_FormataValorTensao_InputMessage">
+    <wsdl:part name="parameters" element="tns:FormataValorTensao" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_FormataValorTensao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FormataValorTensaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_FormataValorCorrente_InputMessage">
+    <wsdl:part name="parameters" element="tns:FormataValorCorrente" />
+  </wsdl:message>
+  <wsdl:message name="ICalculoEletronica_FormataValorCorrente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FormataValorCorrenteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICalculoEletronica">
+    <wsdl:operation name="Calcular">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/Calcular" message="tns:ICalculoEletronica_Calcular_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/CalcularResponse" message="tns:ICalculoEletronica_Calcular_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConverteMiliParaUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteMiliParaUnidade" message="tns:ICalculoEletronica_ConverteMiliParaUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteMiliParaUnidadeResponse" message="tns:ICalculoEletronica_ConverteMiliParaUnidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConverteMicroParaUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteMicroParaUnidade" message="tns:ICalculoEletronica_ConverteMicroParaUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteMicroParaUnidadeResponse" message="tns:ICalculoEletronica_ConverteMicroParaUnidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConverteKiloParaUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteKiloParaUnidade" message="tns:ICalculoEletronica_ConverteKiloParaUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteKiloParaUnidadeResponse" message="tns:ICalculoEletronica_ConverteKiloParaUnidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConverteMegaParaUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteMegaParaUnidade" message="tns:ICalculoEletronica_ConverteMegaParaUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/ConverteMegaParaUnidadeResponse" message="tns:ICalculoEletronica_ConverteMegaParaUnidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FormataValorResistencia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/FormataValorResistencia" message="tns:ICalculoEletronica_FormataValorResistencia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/FormataValorResistenciaResponse" message="tns:ICalculoEletronica_FormataValorResistencia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FormataValorTensao">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/FormataValorTensao" message="tns:ICalculoEletronica_FormataValorTensao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/FormataValorTensaoResponse" message="tns:ICalculoEletronica_FormataValorTensao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FormataValorCorrente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalculoEletronica/FormataValorCorrente" message="tns:ICalculoEletronica_FormataValorCorrente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalculoEletronica/FormataValorCorrenteResponse" message="tns:ICalculoEletronica_FormataValorCorrente_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICalculoEletronica" type="tns:ICalculoEletronica">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Calcular">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/Calcular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConverteMiliParaUnidade">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/ConverteMiliParaUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConverteMicroParaUnidade">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/ConverteMicroParaUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConverteKiloParaUnidade">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/ConverteKiloParaUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConverteMegaParaUnidade">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/ConverteMegaParaUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormataValorResistencia">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/FormataValorResistencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormataValorTensao">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/FormataValorTensao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormataValorCorrente">
+      <soap:operation soapAction="http://tempuri.org/ICalculoEletronica/FormataValorCorrente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculoEletronica">
+    <wsdl:port name="BasicHttpBinding_ICalculoEletronica" binding="tns:BasicHttpBinding_ICalculoEletronica">
+      <soap:address location="http://localhost:49166/CalculoEletronica.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

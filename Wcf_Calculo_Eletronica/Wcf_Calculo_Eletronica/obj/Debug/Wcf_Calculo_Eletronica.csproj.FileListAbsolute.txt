@@ -1,0 +1,4 @@
+C:\WebService_WCF_CSharp_Calc\Wcf_Calculo_Eletronica\Wcf_Calculo_Eletronica\bin\Wcf_Calculo_Eletronica.dll
+C:\WebService_WCF_CSharp_Calc\Wcf_Calculo_Eletronica\Wcf_Calculo_Eletronica\bin\Wcf_Calculo_Eletronica.pdb
+C:\WebService_WCF_CSharp_Calc\Wcf_Calculo_Eletronica\Wcf_Calculo_Eletronica\obj\Debug\Wcf_Calculo_Eletronica.dll
+C:\WebService_WCF_CSharp_Calc\Wcf_Calculo_Eletronica\Wcf_Calculo_Eletronica\obj\Debug\Wcf_Calculo_Eletronica.pdb
